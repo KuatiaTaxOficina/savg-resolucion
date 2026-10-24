@@ -1,4 +1,4 @@
-# Bitácora de trabajo — Prueba técnica Task Manager
+# Bitácora de trabajo — Prueba técnica
 
 **Candidato:** Sander Antonio Vallejos García
 **Fecha de inicio:** 22/10/2026 **Fecha de entrega:** 23/10/2026
