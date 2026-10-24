@@ -1,0 +1,377 @@
+/* ---------- Base ---------- */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+}
+
+.app {
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 1px solid #8a8a8a;
+  border-radius: 4px;
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #e6e6e6;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-primary {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #fff;
+  font-weight: 600;
+}
+
+.button-primary:hover:not(:disabled) {
+  background: #1e40af;
+}
+
+input,
+select,
+textarea {
+  padding: 6px;
+  font-size: 13px;
+  border: 1px solid #8a8a8a;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+/* Modificación: Bloquear laterales y permitir estirar solo hacia abajo */
+textarea {
+  resize: vertical;
+}
+
+/* Foco visible para quien navega con teclado */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 1px;
+}
+
+/* ---------- Filtros ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filters input[type='text'] {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+/* ---------- Estados de la pantalla ---------- */
+.state-box {
+  padding: 28px 16px;
+  text-align: center;
+  color: #555;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+}
+
+.state-box p {
+  margin: 0 0 10px;
+}
+
+.state-error {
+  color: #b00020;
+  border-color: #b00020;
+  background: #fff5f5;
+}
+
+.refreshing {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.is-refreshing {
+  opacity: 0.55;
+  transition: opacity 0.15s;
+}
+
+/* ---------- Tabla ---------- */
+.task-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.task-table th,
+.task-table td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.task-table th {
+  font-weight: 700;
+  background: #f4f4f4;
+  color: #222;
+}
+
+.task-title {
+  display: block;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.cell-actions {
+  white-space: nowrap;
+}
+
+.cell-actions button + button {
+  margin-left: 6px;
+}
+
+.task-details {
+  margin-top: 6px;
+  padding: 6px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  font-weight: normal;
+}
+
+.task-details p,
+.task-details ul {
+  margin: 4px 0;
+}
+
+/* Etiquetas de prioridad y estado: color + texto (no solo color) */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.priority-high {
+  background: #fde2e2;
+  color: #9b1c1c;
+}
+
+.priority-medium {
+  background: #fff3cd;
+  color: #7a5200;
+}
+
+.priority-low {
+  background: #e2f0e4;
+  color: #1f6b34;
+}
+
+.status-select {
+  font-weight: 700;
+}
+
+.status-pending {
+  background: #eef0f3;
+  color: #3b4350;
+}
+
+.status-in_progress {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.due-overdue {
+  color: #9b1c1c;
+  font-weight: 700;
+}
+
+/* ---------- Modal y formulario ---------- */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.modal {
+  background: #fff;
+  padding: 16px;
+  width: 560px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.modal h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field [aria-invalid='true'] {
+  border-color: #b00020;
+}
+
+.field-error {
+  color: #b00020;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.field-hint {
+  color: #666;
+  font-size: 11px;
+  text-align: right;
+  margin-top: 2px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.form-error {
+  border: 1px solid #b00020;
+  border-radius: 4px;
+  color: #b00020;
+  padding: 6px 8px;
+  margin-bottom: 8px;
+}
+
+/* ---------- Confirmación (toast) ---------- */
+.toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  max-width: calc(100% - 32px);
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.toast-success {
+  background: #166534;
+}
+
+.toast-error {
+  background: #b00020;
+}
+
+/* ---------- Celular: la tabla pasa a tarjetas, sin scroll lateral ---------- */
+@media (max-width: 720px) {
+  .task-table,
+  .task-table tbody,
+  .task-table tr,
+  .task-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .task-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .task-table tr {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 6px 10px;
+  }
+
+  .task-table td {
+    border: none;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .task-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #555;
+    flex: 0 0 38%;
+  }
+
+  .task-table td.cell-title {
+    display: block;
+  }
+
+  .task-table td.cell-title::before {
+    display: none;
+  }
+
+  .cell-actions {
+    white-space: normal;
+  }
+}
